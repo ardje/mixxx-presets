@@ -120,3 +120,10 @@ My Stats -> Dunno, web things
 -------
 Midi out:
 
+XX: 7F=ON, 00=OFF
+90+D 10+N XX CUE_N
+90+D 00+N XX FX_N
+90+D 20+N XX SAMPLE_N
+90+D 30+N XX LOOP_N
+
+When pressing SHIFT, the numbers 1..8 will glow dimm unless turned on.
