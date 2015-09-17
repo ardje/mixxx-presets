@@ -1,0 +1,122 @@
+
+D=0 -> Deck A, D=1 -> Deck B
+XX=7F == press XX=00 == release
+
+L=0 -> Deck A, L=8 -> Deck B
+R=0 -> Deck A, R=3 -> Deck B
+YY=01 == dial CW, YY=7F== dial CCW
+ZZ==00..7F fader value
+
+
+Deck A buttons:
+
+Mode switches:
+90+D 45 XX CUE
+90+D 46 XX FX
+90+D 47 XX SAMPLE
+90+D 48 XX LOOP
+These buttons are a mode switch for buttons 1...8
+When pressing SHIFT+a mode switch, the mode switch code will not be sent, but
+the mode will be changed.
+
+Numbers 1...8
+90+D 10+N XX CUE_N
+90+D 00+N XX FX_N
+90+D 20+N XX SAMPLE_N
+90+D 30+N XX LOOP_N
+N : Buttons 1...8 == 1...8 
+N : Buttons 1...8+SHIFT==9...F,10  (CUE_SHIFT_8 becomes 90 20 XX)
+
+B0 52+L YY Dial  (sample group)
+B0 01+D ZZ fader (sample group)
+
+JOG:
+90+D 52 XX jog:touch topside
+B0 32+D YY jog:turn topside
+B0 30+D YY jog:turn side
+
+Bottom:
+90+D 44 XX SHIFT
+90+D 43 XX SYNC
+90+D 42 XX CUE
+90+D 41 XX PAUSEPLAY
+
+Equalizer:
+B0 3B+R ZZ Treble
+B0 3C+R ZZ Med.
+B0 3D+R ZZ Bass
+
+B0 39+D ZZ Fader Deck
+
+90+D 51 XX Load A/B
+90+D 53 XX Headset
+
+---- Common
+B0 41 ZZ Cross fader
+90 59 XX Scratch
+90 58 XX Rec
+90 57 XX Magic
+B0 36 YY Dial
+90 5C XX Press dial
+90 5B XX Headset volume -
+90 5A XX Headset volume +
+
+---- DJuced Master: (bluetooth)
+
+My remote->Mix
+
+99+D 1E XX Touch A / B side of screen (on dial or empty space)
+B9+D 03 ZZ Deck volume
+99+D 01 XX PLAY
+99+D 00 XX SYNC
+9B 1F XX PANIC
+BB 02 ZZ Cross fader
+
+A and B button do nothing except cross fade.
+
+My remote->Info
+nothing
+
+My extender-> SAMPLE
+99+D 39 XX 1
+99+D 3A XX 1
+99+D 3B XX 1
+99+D 3C XX 1
+My extender -> LOOP
+99+D 38 XX 1/16
+99+D 37 XX 1/8
+99+D 36 XX 1/4
+99+D 35 XX 1/2
+99+D 30 XX 1
+99+D 31 XX 2
+99+D 32 XX 4
+99+D 33 XX 8
+99+D 05 XX IN
+99+D 06 XX OUT
+99+D 07 XX /2
+99+D 08 XX x2
+
+My extender -> FX
+99+D 27 7F UP (press only)
+99+D 24 7F DOWN (press only)
+99+D 21 XX 99+D 1A XX GYRO (touching the 2D control has the same effect)
+B9+D 22 ZZ DRY->WET FADER
+B9+D 14 ZZ TOP (00)->BOTTOM (7F) of 2D control
+B9+D 0E ZZ LEFT->RIGHT of 2D control mode FX1
+B9+D 0F ZZ LEFT->RIGHT of 2D control mode FX2
+B9+D 10 ZZ LEFT->RIGHT of 2D control mode FX3
+
+FX1..3 are mode switches, and send no activator codes... The vertical axis is
+always the same.
+
+My extender -> Combo
+Ok, too weird... next time
+
+
+My Party -> Djuced website
+My Stats -> Dunno, web things
+
+
+-------
+Midi out:
+
