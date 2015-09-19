@@ -1,4 +1,13 @@
+NEW:
+Seems that hercules actually documents things.
+The manual that comes with the universal dj: throw it away. It is incorrect.
+To get the specs: got to hercules support/updates+downloads/
+DJ/Music+controller with audio+universal DJ+manual/help file
+http://ts.hercules.com/download/sound/manuals/Universal_DJ/Universal_DJ-MIDI_controls.pdf
+The MIDI controls are not 100% good.
+The VMETER_*_DA are wrong, but just use VMETER_*_DB with channel 1
 
+OLD:
 D=0 -> Deck A, D=1 -> Deck B
 XX=7F == press XX=00 == release
 
