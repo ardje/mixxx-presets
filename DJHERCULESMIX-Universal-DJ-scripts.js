@@ -75,3 +75,7 @@ HCUniversalDJ.wheelScratch = function (channel, control, value, status,group) {
 		newValue = value;
 	engine.scratchTick(deck,newValue);
 };
+
+HCUniversalDJ.setMode = function (channel, control, value, status,group) {
+       print ("setmode on "+group);
+};
