@@ -21,11 +21,11 @@ xml.tail=[[
 local function C(desc,group,status,midino,key,options)
 	local txml=[[
 	<control>
-		<status>@_STATUS_@</status>
-		<midino>@_MIDINO_@</midino>
 		<group>@_GROUP_@</group>
 		<key>@_KEY_@</key>
 		<description>@_DESCRIPTION_@</description>
+		<status>@_STATUS_@</status>
+		<midino>@_MIDINO_@</midino>
 		<options>@_OPTIONS_@
 		</options>
 	</control>
@@ -35,10 +35,9 @@ local function C(desc,group,status,midino,key,options)
 	repl.DESCRIPTION=desc
 	repl.STATUS=status
 	repl.GROUP=group
-	repl.MIDINO=midino
+	--repl.MIDINO=midino
+	repl.MIDINO=string.format("0x%02x",midino)
 	repl.KEY=key
-	repl.KEY=key
-	repl.MIDINO=midino
 	if options ~= nil then
 		options="\n\t\t\t"..options
 	else
@@ -115,8 +114,8 @@ DO("PLAY",65,"play_indicator")
 D("SYNC",67,"beatsync")
 DB("CUE",66,"cue_default")
 DB("LOAD",81,"LoadSelectedTrack")
-C("BROWSE","[Playlist]","0xB0",54,"SelectTrackKnob","<SelectKnob/>")
-C("BROWSE","[Playlist]","0x90",92,"ToggleSelectedSidebarItem")
+C("BROWSE","[Library]","0xB0",54,"MoveVertical","<SelectKnob/>")
+C("BROWSE","[Library]","0x90",92,"MoveFocus")
 DO("CUE",66,"cue_indicator")
 C("XFADER","[Master]","0xB0",65,"crossfader")
 DC("TREBLE",59,62,"filterHigh")
